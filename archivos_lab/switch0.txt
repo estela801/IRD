@@ -1,0 +1,36 @@
+SERVIDOR(config-if)#exit
+SERVIDOR(config)#int vlan1
+SERVIDOR(config-if)#ip address 192.168.10.2 255.255.255.248
+SERVIDOR(config-if)#no shutdown
+
+SERVIDOR(config-if)#
+%LINK-5-CHANGED: Interface Vlan1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to up
+
+SERVIDOR(config-if)#exit
+SERVIDOR(config)#vtp mode server
+Device mode already VTP SERVER.
+SERVIDOR(config)#vlan 11
+SERVIDOR(config-vlan)#name ingenieria
+SERVIDOR(config-vlan)#exit
+SERVIDOR(config)#vlan 12
+SERVIDOR(config-vlan)#name administracion
+SERVIDOR(config-vlan)#exit
+SERVIDOR(config)#vlan 13
+SERVIDOR(config-vlan)#name seguridad
+SERVIDOR(config-vlan)#exit
+SERVIDOR(config)#int fa0/2
+SERVIDOR(config-if)#switchport access vlan 13
+SERVIDOR(config-if)#exit
+SERVIDOR(config)#int fa0/3
+SERVIDOR(config-if)#switchport access vlan 12
+SERVIDOR(config-if)#exit
+SERVIDOR(config)#int fa0/4
+SERVIDOR(config-if)#switchport access vlan 11
+SERVIDOR(config-if)#exit
+SERVIDOR(config)#exit
+SERVIDOR#
+%SYS-5-CONFIG_I: Configured from console by console
+
+SERVIDOR#exit

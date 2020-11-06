@@ -1,0 +1,46 @@
+Router(config)#int se0/0
+Router(config-if)#ip address 192.168.10.82 255.255.255.252
+Router(config-if)#exit
+Router(config)#int f0/0.11
+Router(config-subif)#
+%LINK-5-CHANGED: Interface FastEthernet0/0.11, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0.11, changed state to up
+
+Router(config-subif)#encapsulation dot1Q 11
+Router(config-subif)#description gateway para vlan ingenieria1
+Router(config-subif)#ip address 192.168.10.25 255.255.25.248
+Bad mask 0xFFFF19F8 for address 192.168.10.25
+Router(config-subif)#ip address 192.168.10.25 255.255.255.248
+Router(config-subif)#exit
+Router(config)#int f0/0.12
+Router(config-subif)#
+%LINK-5-CHANGED: Interface FastEthernet0/0.12, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0.12, changed state to up
+
+Router(config-subif)#encapsulation dot1Q 12
+Router(config-subif)#decription gateway vlan admin2
+                       ^
+% Invalid input detected at '^' marker.
+	
+Router(config-subif)#description gateway vlan admin2
+Router(config-subif)#ip address 192.168.10.33 255.255.255.248
+Router(config-subif)#exit
+Router(config)#int f0/0.13
+Router(config-subif)#
+%LINK-5-CHANGED: Interface FastEthernet0/0.13, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0.13, changed state to up
+
+Router(config-subif)#encapsulation dot1Q 13
+Router(config-subif)#description gateway vlan seguridad2
+Router(config-subif)#ip address 192.168.10.41 255.255.255.248
+Router(config-subif)#exit
+Router(config)#router rip
+Router(config-router)#version 2
+Router(config-router)#network 192.168.10.40
+Router(config-router)#network 192.168.10.24
+Router(config-router)#network 192.168.10.32
+Router(config-router)#network 192.168.10.80
+Router(config-router)#exit

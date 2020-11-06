@@ -1,0 +1,31 @@
+Router>
+Router>ENABLE
+Password: 
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#
+Router(config)#interface FastEthernet0/0
+Router(config-if)#exit
+Router(config)#int fa0/0.11
+Router(config-subif)#encapsulation dot1Q 11
+Router(config-subif)#description gateway para vlan ingenieria1
+Router(config-subif)#ip address 192.168.10.1
+% Incomplete command.
+Router(config-subif)#ip address 192.168.10.1 255.255.255.248
+Router(config-subif)#exit
+Router(config)#int fa0/0.12
+Router(config-subif)#encapsulation dot1Q 12
+Router(config-subif)#description gateway para administracion1
+Router(config-subif)#ip address 192.168.10.9 255.255.255.248
+Router(config-subif)#exit
+Router(config)#int fa0/0.13
+Router(config-subif)#encapsulation dot1Q 13
+Router(config-subif)#description gateway para seguridad
+Router(config-subif)#ip address 192.168.10.17 255.255.255.248
+Router(config-subif)#exit
+Router(config)#int se0/0
+Router(config-if)#ip address 192.168.10.81 255.255.255.252
+Router(config-if)#exit
+Router(config)#int se0/1
+Router(config-if)#ip address 192.168.10.85 255.255.255.252
+Router(config-if)#exit
