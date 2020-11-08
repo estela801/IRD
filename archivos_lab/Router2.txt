@@ -121,3 +121,55 @@ Router(config)#access-list 102 permit ip any any
 Router(config)#int fa0/0.12
 Router(config-subif)#ip access-group 102 out
 Router(config-subif)#exit
+Router(config)#access-list 104 permit icmp 192.168.10.72 0.0.0.3 192.168.10.0 0.0.0.7
+Router(config)#access-list 104 permit ip 192.168.10.72 0.0.0.3 192.168.10.0 0.0.0.7
+Router(config)#access-list 104 permit icmp 192.168.10.72 0.0.0.3 192.168.10.24 0.0.0.7
+Router(config)#access-list 104 permit ip 192.168.10.72 0.0.0.3 192.168.10.48 0.0.0.7
+Router(config)#access-list 104 permit icmp 192.168.10.48 0.0.0.3 192.168.10.24 0.0.0.7
+Router(config)#access-list 104 permit ip 192.168.10.48 0.0.0.3 192.168.10.48 0.0.0.7
+Router(config)#int eth1/0
+Router(config-if)#ip access-group 104 in
+Router(config-if)#exit
+Router(config)#access-list 103 permit icmp 192.168.10.8 0.0.0.7 192.168.10.72 0.0.0.3
+Router(config)#access-list 103 permit tcp 192.168.10.8 0.0.0.7 192.168.10.72 0.0.0.3
+Router(config)#access-list 103 permit icmp 192.168.10.0 0.0.0.7 192.168.10.72 0.0.0.3
+Router(config)#access-list 103 permit tcp 192.168.10.0 0.0.0.7 192.168.10.72 0.0.0.3
+Router(config)#access-list 103 permit icmp 192.168.10.24 0.0.0.7 192.168.10.72 0.0.0.3
+Router(config)#access-list 103 permit tcp 192.168.10.24 0.0.0.7 192.168.10.72 0.0.0.3
+Router(config)#access-list 103 permit icmp 192.168.10.32 0.0.0.7 192.168.10.72 0.0.0.3
+Router(config)#access-list 103 permit tcp 192.168.10.32 0.0.0.7 192.168.10.72 0.0.0.3
+Router(config)#access-list 103 permit icmp 192.168.10.48 0.0.0.7 192.168.10.72 0.0.0.3
+Router(config)#access-list 103 permit tcp 192.168.10.48 0.0.0.7 192.168.10.72 0.0.0.3
+Router(config)#access-list 103 permit icmp 192.168.10.56 0.0.0.7 192.168.10.72 0.0.0.3
+Router(config)#access-list 103 permit tcp 192.168.10.56 0.0.0.7 192.168.10.72 0.0.0.3
+Router(config)#int eth1/0
+Router(config-if)#ip access-group 103 out
+Router(config-if)#exit
+Router(config)#access-list 106 permit icmp 192.168.10.76 0.0.0.3 192.168.10.8 0.0.0.7
+Router(config)#access-list 106 permit ip 192.168.10.76 0.0.0.3 192.168.10.8 0.0.0.7
+Router(config)#access-list 106 permit icmp 192.168.10.76 0.0.0.3 192.168.10.32 0.0.0.7
+Router(config)#access-list 106 permit ip 192.168.10.76 0.0.0.3 192.168.10.32 0.0.0.7
+Router(config)#access-list 106 permit icmp 192.168.10.76 0.0.0.3 192.168.10.56 0.0.0.7
+Router(config)#access-list 106 permit ip 192.168.10.76 0.0.0.3 192.168.10.56 0.0.0.7
+Router(config)#int eth1/1
+Router(config-if)#ip access-group 106 in
+Router(config-if)#exit
+Router(config)#access-list 104 permit ip 192.168.10.72 0.0.0.3 192.168.10.8 0.0.0.7
+Router(config)#access-list 104 permit icmpp 192.168.10.72 0.0.0.3 192.168.10.8 0.0.0.7
+                                          ^
+% Invalid input detected at '^' marker.
+	
+Router(config)#access-list 104 permit icmp 192.168.10.72 0.0.0.3 192.168.10.8 0.0.0.7
+Router(config)#access-list 104 permit ip 192.168.10.72 0.0.0.3 192.168.10.0 0.0.0.7
+Router(config)#access-list 104 permit icmp 192.168.10.72 0.0.0.3 192.168.10.0 0.0.0.7
+Router(config)#access-list 104 permit ip 192.168.10.72 0.0.0.3 192.168.10.24 0.0.0.7
+Router(config)#access-list 104 permit icmp 192.168.10.72 0.0.0.3 192.168.10.24 0.0.0.7
+Router(config)#access-list 104 permit ip 192.168.10.72 0.0.0.3 192.168.10.32 0.0.0.7
+Router(config)#access-list 104 permit icmp 192.168.10.72 0.0.0.3 192.168.10.32 0.0.0.7
+Router(config)#access-list 104 permit ip 192.168.10.72 0.0.0.3 192.168.10.48 0.0.0.7
+Router(config)#access-list 104 permit icmp 192.168.10.72 0.0.0.3 192.168.10.48 0.0.0.7
+Router(config)#access-list 104 permit ip 192.168.10.72 0.0.0.3 192.168.10.56 0.0.0.7
+Router(config)#access-list 104 permit icmp 192.168.10.72 0.0.0.3 192.168.10.56 0.0.0.7
+Router(config)#int eth1/0
+Router(config-if)#ip access-group 104 in
+Router(config-if)#exit
